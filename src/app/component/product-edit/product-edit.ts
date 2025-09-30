@@ -13,20 +13,21 @@ import { mapToInterface } from '../../../product.mapper';
   styleUrl: './product-edit.scss'
 })
 export class ProductEdit implements OnInit{
-    
-    
 
     router = inject(Router);
     service = inject(ProductService);
     activatedRoute = inject(ActivatedRoute);
-    product:ProductInterface = {};
+    product:ProductInterface = {
+      code: '',
+      nom: '',
+      description: ''
+    };
 
 
     async ngOnInit() {
         const id = this.activatedRoute.snapshot.params["id"];
         const result = await this.service.findById(id);
         this.product = mapToInterface(result);
-        console.log("this.product=", this.product)
     }
 
     async save(product:ProductInterface){

@@ -5,6 +5,6 @@ export class ProductModel implements ProductInterface{
     code = "";
     nom = "";
     description = "";
-    keywords = "";
-    kcal?:number = 0
+    keywords?:string;
+    kcal?:number;
 }

@@ -2,7 +2,11 @@ import { ProductInterface } from "./app/product.interface";
 import { ProductModel } from "./app/product.model";
 
 export function mapToInterface(product: ProductModel): ProductInterface {
-    const iproduct:ProductInterface = {}
+    const iproduct:ProductInterface = {
+        code: "",
+        nom: "",
+        description: ""
+    }
     iproduct.code = product.code;
     iproduct.description = product.description;
     iproduct.keywords = product.keywords;

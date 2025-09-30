@@ -20,16 +20,15 @@ export class Products implements OnInit {
 
     async ngOnInit(){
         this.products = await this.service.findAll({});
-        console.log("products=", this.products);
     }
 
     async search(filter:ProductFilter){
         this.products = await this.service.findAll(filter);
-        console.log("products=", this.products);
     }
 
     async delete(id: number) {
-        this.service.delete(id);
+        await this.service.delete(id);
+        this.products = await this.service.findAll({});
     }
     edit(id: number) {
         this.router.navigateByUrl("/products/edit/{{id}}")

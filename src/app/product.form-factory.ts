@@ -16,7 +16,7 @@ export class ProductFormFactory {
     }
 
 
-    createForm(){
+    createModelForm(){
         return this.formBuilder.group({
             code: this.formBuilder.control("", [Validators.required]),
             nom: this.formBuilder.control("", [Validators.required]),

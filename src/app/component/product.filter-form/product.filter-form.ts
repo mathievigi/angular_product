@@ -11,18 +11,16 @@ import { ProductFilter } from '../../product.filter';
 })
 export class ProductFilterForm {
 
-    
     factory = inject(ProductFormFactory);
     filterform = this.factory.createFilterForm();
     productFilter = output<ProductFilter>();
 
     public submit() {
-       console.warn(this.filterform.value);
-        if(this.filterform.valid){ 
-            this.productFilter.emit(this.filterform.getRawValue());
-        } else {
+        if(this.filterform.invalid && (this.filterform.touched  || this.filterform.dirty )) { 
             console.log("form invalid")
             this.filterform.markAllAsTouched()
+        } else {
+            this.productFilter.emit(this.filterform.getRawValue());
         }
     }
 

@@ -12,8 +12,12 @@ import { ProductInterface } from '../../product.interface';
 export class ProductForm {
    
     factory = inject(ProductFormFactory);
-    form = this.factory.createForm();
-    input_product = input<ProductInterface>({});
+    form = this.factory.createModelForm();
+    input_product = input<ProductInterface>({
+        code: '',
+        nom: '',
+        description: ''
+    });
     output_product = output<ProductInterface>();
 
     constructor() {
