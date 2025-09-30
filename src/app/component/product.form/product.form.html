@@ -1,0 +1,37 @@
+<form [formGroup]="form" class="form-container">
+    <div class="form-fields">
+        <div class="form-field">
+            <label for="code">Code: </label><input id="code" type="text" formControlName="code" /> 
+            @if (form.controls.code.invalid && (form.controls.code.dirty || form.controls.code.touched)){
+                <span class="error">code invalid</span>
+            }
+        </div>
+        <div class="form-field">
+            <label for="name">Nom: </label><input id="name" type="text" formControlName="nom" />
+            @if (form.controls.nom.invalid && (form.controls.nom.dirty || form.controls.nom.touched)){
+                <span class="error">nom invalid</span>
+            }
+        </div>
+        <div class="form-field">
+            <label for="description">Description: </label><input id="description" type="text" formControlName="description" />
+            @if (form.controls.description.invalid && (form.controls.description.dirty || form.controls.description.touched)){
+                <span class="error">description invalid</span>
+            }
+        </div>
+         <div class="form-field">
+            <label for="keywords">Keywords: </label><input id="keywords" type="text" formControlName="keywords" />
+            @if (form.controls.keywords.invalid && (form.controls.keywords.dirty || form.controls.keywords.touched)){
+                <span class="error">keywords invalid</span>
+            }
+        </div>
+        <div class="form-field">
+            <label for="kcal">Kcal: </label><input id="kcal" type="number" formControlName="kcal" />
+            @if (form.controls.kcal.invalid && (form.controls.kcal.dirty || form.controls.kcal.touched)){
+                <span class="error">kcal invalid</span>
+            }
+        </div>
+    </div>
+    <div class="form-actions">
+        <button (click)="submit()">Envoyer</button>
+    </div>
+</form>

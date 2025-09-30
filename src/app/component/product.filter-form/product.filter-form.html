@@ -1,0 +1,14 @@
+<form [formGroup]="filterform" class="form-container">
+    <div class="form-fields">
+        <div class="form-field">
+            <label for="code">Code: </label><input id="code" type="text" formControlName="code" /> 
+        </div>
+        <div class="form-field">
+            <label for="name">Nom: </label><input id="name" type="text" formControlName="nom" />
+        </div>
+    </div>
+    <div class="form-actions">
+        <button (click)="submit()">Chercher</button>
+        <button (click)="reset()">Reset</button>
+    </div>
+</form>

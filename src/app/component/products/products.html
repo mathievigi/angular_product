@@ -1,0 +1,17 @@
+<app-product-filter-form (productFilter)="search($event)" />
+
+@for (product of products; track $index) {
+    <div class="product">
+        <div class="product-summary">
+        <span>user #{{product.id}}</span>
+        <span>user #{{product.code}}</span>
+        <span>user #{{product.nom}}</span>
+        </div>
+        <div class="product-actions">
+            <a (click)="view(product.id)">View</a>
+            <a (click)="edit(product.id)">Edit</a>
+            <a (click)="delete(product.id)">Delete</a>
+        </div>
+    </div>
+    
+}
