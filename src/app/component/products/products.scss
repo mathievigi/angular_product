@@ -1,12 +1,23 @@
 .product{
     display:flex;
-    flex-direction: column;
+    gap:2rem
 }
 
 .product-summary{
     display:flex;
+    gap:2rem
 }
 
 .product-actions{
     display:flex;
+    gap:2rem
+}
+
+.action{
+    border-radius: 5rem;
+}
+
+.delete-action{
+    background-color:  var(--warning-color);
+
 }

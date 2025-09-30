@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { ProductModel } from './product.model';
 import { ProductFilter } from './product.filter';
 import { ProductInterface } from './product.interface';
+import { environment } from '../environments/environment.development';
+
+const BASE_URL = environment.api_url;
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +44,7 @@ export class ProductService {
 
     delete(id:number): Promise<boolean>{
         return new Promise((resolve, reject) => {
+            console.log("BASE_URL=", BASE_URL)
             resolve(true);
         });
     }

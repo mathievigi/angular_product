@@ -1,8 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, input, OnChanges, OnInit, signal, SimpleChanges } from '@angular/core';
 import { ProductForm } from "../product.form/product.form";
 import { ProductInterface } from '../../product.interface';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../product.service';
+import { ProductModel } from '../../product.model';
+import { mapToInterface } from '../../../product.mapper';
 
 @Component({
   selector: 'app-product-edit',
@@ -10,15 +12,27 @@ import { ProductService } from '../../product.service';
   templateUrl: './product-edit.html',
   styleUrl: './product-edit.scss'
 })
-export class ProductEdit {
+export class ProductEdit implements OnInit{
+    
+    
 
     router = inject(Router);
     service = inject(ProductService);
+    activatedRoute = inject(ActivatedRoute);
+    product:ProductInterface = {};
 
+
+    async ngOnInit() {
+        const id = this.activatedRoute.snapshot.params["id"];
+        const result = await this.service.findById(id);
+        this.product = mapToInterface(result);
+        console.log("this.product=", this.product)
+    }
 
     async save(product:ProductInterface){
-        await this.service.create(product);
-        this.router.navigateByUrl("/products");
+      await this.service.create(product);
+      this.router.navigateByUrl("/products");
+       
     }
 
 }

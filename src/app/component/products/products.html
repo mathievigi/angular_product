@@ -3,14 +3,14 @@
 @for (product of products; track $index) {
     <div class="product">
         <div class="product-summary">
-        <span>user #{{product.id}}</span>
-        <span>user #{{product.code}}</span>
-        <span>user #{{product.nom}}</span>
+            <span>{{product.id}}</span>
+            <span>{{product.code}}</span>
+            <span>{{product.nom}}</span>
         </div>
         <div class="product-actions">
-            <a (click)="view(product.id)">View</a>
-            <a (click)="edit(product.id)">Edit</a>
-            <a (click)="delete(product.id)">Delete</a>
+            <a class="action view-action" (click)="view(product.id)">View</a>
+            <a class="action edit-action" (click)="edit(product.id)">Edit</a>
+            <a class="action delete-action" (click)="delete(product.id)">Delete</a>
         </div>
     </div>
     

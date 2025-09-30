@@ -18,13 +18,14 @@ export class Products implements OnInit {
     service = inject(ProductService);
     products:ProductModel[] = [];
 
-    ngOnInit(){
-        
+    async ngOnInit(){
+        this.products = await this.service.findAll({});
+        console.log("products=", this.products);
     }
 
-    search(filter:ProductFilter){
-        console.log("search");
-        console.log("filter = ", filter)
+    async search(filter:ProductFilter){
+        this.products = await this.service.findAll(filter);
+        console.log("products=", this.products);
     }
 
     async delete(id: number) {

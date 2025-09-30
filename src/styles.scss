@@ -1,6 +1,8 @@
 :root {
   --background-color:  #6868b9;
   --text-color : #ccc;
+  --error-color: rgb(199, 75, 17);
+  --warning-color: rgb(159, 107, 11);
 }
 
 
@@ -49,7 +51,11 @@ button{
     border-radius: 5px;
 }
 
+.delete-action{
+  background-color: var(--warning-color);
+}
+
 .error{
     margin:1rem;
-    color: red;
+    color: var(--error-color);
 }/* You can add global styles to this file, and also import other style files */
